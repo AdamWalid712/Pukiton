@@ -1,0 +1,29 @@
+.glass-shadow{
+    box-shadow: 0 .5vh 5px #8a8a8a, inset 0 .5vh 5px #898989;
+}
+div::-webkit-scrollbar {
+    display: none;
+}
+input[type="number"]::-webkit-scrollbar-button{
+    display: none;
+}
+select::-webkit-scrollbar{
+    display: none;
+}
+input[type="text"]::-webkit-input-placeholder{
+    color: #000;
+}
+input[type="range"]::-webkit-slider-thumb{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 3vh;
+    height: 5.5vh;
+    border-radius: 30px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    background: #fff;
+}
+*::-webkit-scrollbar{
+    display: none;
+    /*background: lin;*/
+}
