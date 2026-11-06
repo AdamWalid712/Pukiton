@@ -1,0 +1,1 @@
+export  type visibility = "visible" | "hidden" ;

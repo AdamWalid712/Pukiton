@@ -4,5 +4,15 @@
 }
 
 .AIChatBoxBtn{
-  @apply flex justify-center items-center gap-1 bg-orange-300 rounded-full p-1 text-lg font-semibold ring-2 ring-black cursor-pointer hover:scale-105 transition
+  @apply flex justify-center items-center gap-1 bg-orange-300 rounded-full p-1 text-lg font-semibold ring-2 ring-black
+}
+
+button {
+  @apply cursor-pointer hover:scale-105 transition
+}
+input[type="range"]{
+  @apply appearance-none rounded-full bg-orange-300 h-5 my-2 border border-black
+}
+input::-webkit-slider-thumb{
+  @apply bg-orange-100 appearance-none h-8 w-3 rounded-full border border-black
 }

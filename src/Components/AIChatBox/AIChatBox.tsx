@@ -5,13 +5,12 @@ import {
 } from "@remixicon/react";
 
 type props = {
-    xPosition: number
+    visibility: "hidden" | "visible"
 }
 
-export default function AIChatBox({ xPosition }: props) {
-    console.log(xPosition)
+export default function AIChatBox({ visibility }: props) {
     return (
-        <div className={`transition ease-in-out -z-4 translate-x-${xPosition} p-1 flex flex-col rounded-2xl bg-orange-200 h-full w-62 shadow-aggressive shadow-black ring-2 `}>
+        <div className={`${visibility === "visible" ? "translate-x-0" : "translate-x-100"} transition ease-in-out -z-4  p-1 flex flex-col rounded-2xl bg-orange-200 h-full w-62 shadow-aggressive shadow-black ring-2 `}>
             <div className="flex-2">
                 <div className="text-gray-900 capitalize text-center font-semibold w-full h-full flex flex-col gap-3 justify-center items-center px-5">
                     <RiGeminiFill className="text-3xl" />

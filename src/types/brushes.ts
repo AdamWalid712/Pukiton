@@ -1,0 +1,1 @@
+export type brushes = "eraser" | "marker" | "pencil"
