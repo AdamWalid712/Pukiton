@@ -9,7 +9,7 @@ interface BrushState {
 
 const initialState : BrushState = {
     mode: "pencil",
-    color: "#000",
+    color: "#000000",
     size: 5
 }
 const brushSlice = createSlice({
