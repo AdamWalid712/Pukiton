@@ -1,43 +1,34 @@
-// import type { RefObject } from "react"
-import { RiCloseLine } from "@remixicon/react"
-import type { brushes } from "../../types/brushes"
-import type { visibility } from "../../types/visibility"
-import { useAppDispatch } from "../../hooks/reduxHooks";
-import { setBrushColor, setBrushSize } from "../../ReduxTk/EditorSlices/BrushsSlice";
+import { RiCloseLine } from "@remixicon/react";
+import type { brushes } from "../../types/editor";
+import type { visibility } from "../../types/visibility";
 import useBrushSettings from "../../hooks/Editor/useBrushSettings";
 type props = {
     visibility: visibility,
-    targetedBrush: brushes,
     visibilityFn(): void
 }
-export default function BrushSettings({ visibility, targetedBrush, visibilityFn }: props) {
-    const {brushSize} = useBrushSettings()
-    const dispatch = useAppDispatch();
+export default function BrushSettings({ visibility, visibilityFn }: props) {
+    const targetedBrush = useBrushSettings("mode")
+    const currentBrushColor = useBrushSettings("currentBrushColor");
+    const currentBrushSize = useBrushSettings("currentBrushSize");
+    const {changeCurrentBrushColor,changeCurrentBrushSize} = useBrushSettings("functions");
 
-    const dispatchBrushColor = (color : string) => {
-        dispatch(setBrushColor(color))
-    }
-    const dispatchBrushSize = (size :number) => {
-        dispatch(setBrushSize(size))
-    }
+
     return (
         <div
             id={`${targetedBrush}-settings-popup`}
             className={`${visibility === "visible" ? "flex" : "hidden"} flex-col py-1.5 px-2 bg-orange-200 shadow-aggressive border-2 shadow-black border-black rounded-2xl`}
         >
-            <p className="text-black font-bold capitalize text-center text-xl select-none"
-                onSelect={e => e.stopPropagation}
-            >
+            <p className="text-black font-bold capitalize text-center text-xl select-none">
                 {targetedBrush}
             </p>
             <input
                 min={1}
                 max={targetedBrush === "eraser" ? 200 : 100}
-                defaultValue={50}
+                defaultValue={currentBrushSize}
                 type="range"
-                name={`${targetedBrush}-brush-thickness`}
-                id={`${targetedBrush}-brush-thickness`}
-                onChange={(e) => dispatchBrushSize(parseInt(e.target.value))}
+                name="brush-thickness"
+                id="brush-thickness"
+                onChange={(e) => changeCurrentBrushSize(parseInt(e.target.value))}
             />
             <div className="flex justify-between items-center mt-1.5">
                 <button
@@ -46,13 +37,14 @@ export default function BrushSettings({ visibility, targetedBrush, visibilityFn 
                 >
                     <RiCloseLine size={25} />
                 </button>
-                <p className="text-black font-bold select-none">{brushSize}px</p>
+                <p className="text-black font-bold select-none">{currentBrushSize}px</p>
                 {targetedBrush === "eraser" ? "" : (
                     <div className="size-8 flex justify-center items-center rounded-full overflow-hidden ring-black ring-2">
                         <input 
                             type="color" 
                             className="scale-120 h-15" 
-                            onChange={(e) => dispatchBrushColor(e.target.value)}
+                            onChange={(e) => changeCurrentBrushColor(e.target.value)}
+                            value={currentBrushColor}
                         />
                     </div>
                 )}
