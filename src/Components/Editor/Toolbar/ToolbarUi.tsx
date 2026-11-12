@@ -17,9 +17,9 @@ import {
     RiText
 } from "@remixicon/react";
 import BrushSettings from "../BrushSettings/BrushSettings";
-import type { brushes } from "../../types/editor";
-import type { visibility } from "../../types/visibility";
-import type { changBackgroundParams } from "../../types/editor";
+import type { brushes } from "../../../types/editor";
+import type { visibility } from "../../../types/visibility";
+import type { changBackgroundParams } from "../../../types/editor";
 
 type props = {
     brushMode: brushes,

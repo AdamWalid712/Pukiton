@@ -1,19 +1,18 @@
 import { RiCloseLine } from "@remixicon/react";
-import type { brushes } from "../../types/editor";
-import type { visibility } from "../../types/visibility";
-import useBrushSettings from "../../hooks/Editor/useBrushSettings";
+import type { visibility } from "../../../types/visibility";
+import useBrushSettings from "../../../hooks/Editor/useBrushSettings";
 type props = {
     visibility: visibility,
     visibilityFn(): void
 }
 export default function BrushSettings({ visibility, visibilityFn }: props) {
-    const targetedBrush = useBrushSettings("mode")
+    const targetedBrush = useBrushSettings("mode") 
     const currentBrushColor = useBrushSettings("currentBrushColor");
     const currentBrushSize = useBrushSettings("currentBrushSize");
     const {changeCurrentBrushColor,changeCurrentBrushSize} = useBrushSettings("functions");
 
 
-    return (
+    return targetedBrush !== "unset" ?(
         <div
             id={`${targetedBrush}-settings-popup`}
             className={`${visibility === "visible" ? "flex" : "hidden"} flex-col py-1.5 px-2 bg-orange-200 shadow-aggressive border-2 shadow-black border-black rounded-2xl`}
@@ -50,5 +49,5 @@ export default function BrushSettings({ visibility, visibilityFn }: props) {
                 )}
             </div>
         </div>
-    )
+    ) : (<></>)
 }

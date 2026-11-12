@@ -7,7 +7,7 @@ type brushSettings = {
 }
 
 type BrushState = {
-    mode: brushes,
+    mode: brushes ,
     pencil: brushSettings,
     marker: brushSettings
     eraser: {
@@ -16,7 +16,7 @@ type BrushState = {
 }
 
 const initialState: BrushState = {
-    mode: "pencil",
+    mode: "unset",
     pencil:{
         size: 10,
         color:"#f0854c"

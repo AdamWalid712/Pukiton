@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useAppDispatch } from "../../hooks/reduxHooks";
-import { setBrushMode } from "../../ReduxTk/EditorSlices/BrushsSlice";
-import { setBackgroundMode, setBackgroundValue } from "../../ReduxTk/EditorSlices/BackgroundSlice";
-import type { brushes, changBackgroundParams } from "../../types/editor";
-import type { visibility } from "../../types/visibility";
-import useBrushSettings from "../../hooks/Editor/useBrushSettings";
+import { useAppDispatch } from "../../../hooks/reduxHooks";
+import { setBrushMode } from "../../../ReduxTk/EditorSlices/BrushsSlice";
+import { setBackgroundMode, setBackgroundValue } from "../../../ReduxTk/EditorSlices/BackgroundSlice";
+import type { brushes, changBackgroundParams } from "../../../types/editor";
+import type { visibility } from "../../../types/visibility";
+import useBrushSettings from "../../../hooks/Editor/useBrushSettings";
 import ToolbarUI from "./ToolbarUi";
 
 export default function Toolbar() {

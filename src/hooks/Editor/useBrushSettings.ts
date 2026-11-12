@@ -1,5 +1,4 @@
 import { setEraserSize, setMarkerColor, setMarkerSize, setPencilColor, setPencilSize } from "../../ReduxTk/EditorSlices/BrushsSlice";
-import type { brushes } from "../../types/editor";
 import { useAppDispatch, useAppSelector } from "../reduxHooks";
 
 type target = "colors" | "currentBrushColor" | "currentBrushSize" | "mode" | "functions";

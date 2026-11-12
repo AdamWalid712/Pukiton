@@ -1,7 +1,7 @@
 import { RiBardFill, RiCloseLargeFill } from "@remixicon/react";
 import { useState } from "react";
 import AIChatBox from "../AIChatBox/AIChatBox";
-import type { visibility } from "../../types/visibility";
+import type { visibility } from "../../../types/visibility";
 
 export default function AIChat() {
     const [visibility, setVisibility] = useState<visibility>("hidden");

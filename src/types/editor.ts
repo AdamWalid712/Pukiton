@@ -3,4 +3,4 @@ export type changBackgroundParams = {
     value: string | [string, string]
 }
 
-export type brushes = "eraser" | "marker" | "pencil"
+export type brushes = "eraser" | "marker" | "pencil" | "unset"
