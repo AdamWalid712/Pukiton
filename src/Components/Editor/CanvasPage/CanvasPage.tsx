@@ -31,12 +31,13 @@ export default function CanvasPage() {
     const drawingStart = (e: React.MouseEvent<HTMLCanvasElement>)=>{
         if(!drawingContext) return;
         setIsDrawing(true)
-        if (currentBrush !== "eraser"){
-            drawingContext.lineCap = currentBrush === "marker"? "square" : "round";
-            drawingContext.lineJoin = currentBrush === "marker"? "bevel" : "round";
-        }else {
+        if(currentBrush === "eraser") {
             drawingContext.globalCompositeOperation = "destination-out";
+        } else {
+            drawingContext.globalCompositeOperation = "source-over";
         }
+        drawingContext.lineCap = currentBrush === "marker"? "square" : "round";
+        drawingContext.lineJoin = currentBrush === "marker"? "bevel" : "round";
         drawingContext.beginPath();
         drawingContext.moveTo(e.nativeEvent.offsetX,e.nativeEvent.offsetY);
         drawingContext.lineWidth = currentBrushSize;
