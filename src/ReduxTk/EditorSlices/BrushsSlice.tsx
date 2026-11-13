@@ -35,7 +35,6 @@ const brushSlice = createSlice({
     reducers: {
         setBrushMode(state, action: PayloadAction<brushes>) {
             state.mode = action.payload;
-            console.log(state.mode)
         },
         setPencilSize(state, action: PayloadAction<number>) {
             state.pencil = {...state.pencil,size:action.payload};

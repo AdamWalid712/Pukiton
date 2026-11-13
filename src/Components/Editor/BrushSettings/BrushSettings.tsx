@@ -23,11 +23,14 @@ export default function BrushSettings({ visibility, visibilityFn }: props) {
             <input
                 min={1}
                 max={targetedBrush === "eraser" ? 200 : 100}
-                defaultValue={currentBrushSize}
+                value={currentBrushSize}
                 type="range"
                 name="brush-thickness"
                 id="brush-thickness"
                 onChange={(e) => changeCurrentBrushSize(parseInt(e.target.value))}
+                style={{
+                    background: targetedBrush === "eraser"? "oklch(83.7% 0.128 66.29)" :currentBrushColor
+                }}
             />
             <div className="flex justify-between items-center mt-1.5">
                 <button

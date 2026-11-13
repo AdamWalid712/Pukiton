@@ -17,11 +17,13 @@ export default function Toolbar() {
         setSettingsPopUpV(settingsPopUpV === "hidden" ? "visible" : "hidden")
     }
 
-
-    // other functions
-
     const changeBrushMode = (mode: brushes): void => {
-        dispatch(setBrushMode(mode))
+        if(mode === brushMode){
+            dispatch(setBrushMode("unset"))
+        }
+        else{
+            dispatch(setBrushMode(mode))
+        }
     }
 
     const changeBackground = ({ mode, value }: changBackgroundParams): void => {
@@ -40,5 +42,4 @@ export default function Toolbar() {
             changeBackground={changeBackground}
         />
     )
-
 }

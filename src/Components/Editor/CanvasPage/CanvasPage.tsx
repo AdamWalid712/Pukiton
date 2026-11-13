@@ -15,8 +15,6 @@ export default function CanvasPage() {
     const currentBrushSize = useBrushSettings("currentBrushSize")
     const currentBrushColor = useBrushSettings("currentBrushColor");
 
-    console.log(currentBrushSize)
-    console.log(currentBrushColor)
     useEffect(()=>{
         if(!backgroundCanvasRef.current) return;
         const backgroundContext = backgroundCanvasRef.current.getContext("2d");
